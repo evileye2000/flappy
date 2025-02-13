@@ -12,8 +12,8 @@ function resetGame() {
         y: 150,
         width: 20,
         height: 20,
-        gravity: 0.1,
-        lift: -3,
+        gravity: 0.4,
+        lift: -10,
         velocity: 0
     };
     pipes = [];
@@ -34,6 +34,17 @@ document.addEventListener('click', (event) => {
     if (!gameRunning && event.clientX >= canvas.width / 2 - 50 && event.clientX <= canvas.width / 2 + 50 && event.clientY >= canvas.height / 2 + 20 && event.clientY <= canvas.height / 2 + 50) {
         resetGame();
         gameLoop();
+    } else if (gameRunning) {
+        bird.velocity = bird.lift;
+    }
+});
+
+document.addEventListener('touchstart', (event) => {
+    if (!gameRunning && event.touches[0].clientX >= canvas.width / 2 - 50 && event.touches[0].clientX <= canvas.width / 2 + 50 && event.touches[0].clientY >= canvas.height / 2 + 20 && event.touches[0].clientY <= canvas.height / 2 + 50) {
+        resetGame();
+        gameLoop();
+    } else if (gameRunning) {
+        bird.velocity = bird.lift;
     }
 });
 
