@@ -13,7 +13,7 @@ function resetGame() {
         width: 20,
         height: 20,
         gravity: 0.1,
-        lift: -3,
+        lift: -5,
         velocity: 0
     };
     pipes = [];
